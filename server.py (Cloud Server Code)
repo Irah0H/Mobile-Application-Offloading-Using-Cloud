@@ -1,0 +1,14 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/offload', methods=['POST'])
+def offload_computation():
+    # Simulating computation offloading
+    data = request.json
+    task = data.get('task', 'undefined')
+    result = f"Processed task: {task}"  # Replace with actual computation logic
+    return jsonify({'result': result})
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
